@@ -1,4 +1,16 @@
-{% for i in movie_list %}
-<a>{{ i }}</a>
-<br>
+{% if movie_list %}
+{% for movie in movie_list %}
+    <div class="movie">
+        <h2>{{ movie.title }}</h2>
+        <img src="http://image.tmdb.org/t/p/w185/{{ movie.poster_path }}" alt="{{ movie.title }}">
+        <p>{{ movie.overview }}</p>
+        <p>{{ movie.release_date }}</p>
+        {% for genre in movie.genres %}
+            {{ genre.name }}
+            {% if not loop.last %}, {% endif %}
+        {% endfor %}
+    </div>
 {% endfor %}
+{% else %}
+    <p>No movies found.</p>
+{% endif %}

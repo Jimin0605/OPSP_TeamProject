@@ -12,7 +12,7 @@ movies = []
 genres = [{"id": 28, "name": "Action"}, {"id": 12, "name": "Adventure"}, {"id": 16, "name": "Animation"}, {"id": 35, "name": "Comedy"}, {"id": 80, "name": "Crime"}, {"id": 99, "name": "Documentary"}, {"id": 18, "name": "Drama"}, {"id": 10751, "name": "Family"}, {"id": 14, "name": "Fantasy"}, {"id": 36, "name": "History"}, {"id": 27, "name": "Horror"}, {"id": 10402, "name": "Music"}, {"id": 9648, "name": "Mystery"}, {"id": 10749, "name": "Romance"}, {"id": 878, "name": "Science Fiction"}, {"id": 10770, "name": "TV Movie"}, {"id": 53, "name": "Thriller"}, {"id": 10752, "name": "War"}, {"id": 37, "name": "Western"}]
 
 for i in range(1, 20):
-    url = f"https://api.themoviedb.org/3/discover/movie?include_adult=true&include_video=false&language=ko-KR&page={i}&region=KR&sort_by=popularity.descn"
+    url = f"https://api.themoviedb.org/3/discover/movie?include_adult=true&include_video=false&language=ko-KR&page={i}&region=KR&sort_by=popularity.desc"
 
 
     headers = {
@@ -43,5 +43,5 @@ for i in range(1, 20):
 json_movies = json.dumps(movies, ensure_ascii=False, indent=4)
 
 
-with open('data/movies.json', 'w', encoding="UTF-8") as make_file:
+with open('movies.json', 'w', encoding="UTF-8") as make_file:
     json.dump(movies, make_file, indent="\t")
