@@ -7,6 +7,10 @@ movie_genre_association = db.Table(
 )
 
 # TODO: User 모델 정의
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(10), nullable=False)
+
 
 # Movie 모델 정의
 class Movie(db.Model):
@@ -28,15 +32,21 @@ class Genre(db.Model):
     movies = db.relationship('Movie', secondary=movie_genre_association, back_populates='genres')
 
 
+class Genre_weight(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    genre_id = db.Column(db.Integer, db.ForeignKey('genre.id'))
+    weight = db.Column(db.Integer, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
 # TODO: 질문과 답변 모델 정의
-# class Question(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     question = db.Column(db.String(40), nullable=False)
-#     weather = db.Column(db.String(20), nullable=False)
+class Question(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    question = db.Column(db.String(40), nullable=False)
+    weather = db.Column(db.String(20), nullable=False)
 
 
-# class Answer(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     question_id = db.Column(db.Integer, db.ForeignKey('question.id'))
-#     weight = db.Column(db.Integer, nullable=False)
-#     answer = db.Column(db.String(40), nullable=False)
+class Answer(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    question_id = db.Column(db.Integer, db.ForeignKey('question.id'))
+    weight = db.Column(db.Integer, nullable=False)
+    answer = db.Column(db.String(40), nullable=False)

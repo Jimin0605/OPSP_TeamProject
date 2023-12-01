@@ -11,7 +11,7 @@ bp = Blueprint('main', __name__, url_prefix='/')
 
 @bp.route('/')
 def index():
-    return 'mvti index'
+    return render_template('index.html')
 
 
 @bp.route('/hello')
