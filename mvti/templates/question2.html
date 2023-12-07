@@ -5,7 +5,7 @@
     crossorigin="anonymous"></script>
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="{{ url_for('main.index') }}">MVTI</a>
+    <a class="navbar-brand ps-3" href="index.html">MVTI</a>
     <!-- Sidebar Toggle-->
     <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
             class="fas fa-bars"></i></button>
@@ -115,7 +115,7 @@
                             <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAxOTA3MTNfMTUg%2FMDAxNTYyOTg2NzI5NjI5.BzEomVPN2qRJD_LEWmEK3YeqxFa5VhLZeBiGv_PLma4g.eXYL0c-0eM0jy5RteWM19lUlkO0U1Zs9Tm6Eoj6gsPUg.JPEG%2F20190712_122426.jpg&type=sc960_832" width="300" height="350">
                             <p>(1) 로맨스 영화</p>  
                             <div class="d-flex justify-content-between">
-                                <input type="checkbox" class="form-check-input" name="question1" value="a"> 
+                                <input type="checkbox" class="form-check-input" name="question1" value="a"> 매우 좋음
                                 <input type="checkbox" class="form-check-input" name="question1" value="b"> 좋음
                                 <input type="checkbox" class="form-check-input" name="question1" value="c"> 보통
                                 <input type="checkbox" class="form-check-input" name="question1" value="d"> 나쁨
@@ -392,7 +392,6 @@
                                     <input type="checkbox" class="form-check-input" name="question1" value="e"> 매우 나쁨
                                 </div>
                                 <p>(3) 판타지 영화</p>  
-                                {{ movie_list }}
                                 <div class="d-flex justify-content-between">
                                     <input type="checkbox" class="form-check-input" name="question1" value="a"> 매우 좋음
                                     <input type="checkbox" class="form-check-input" name="question1" value="b"> 좋음
@@ -411,7 +410,7 @@
                             <div class="card-body">Rainy Day</div>
                             <div class="question">
                                 <p>4-1. 비가 후드득후드득 조금씩 내리는 날에 어떤 영화 장르를 보고 싶나요?</p>
-                                <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDA4MTBfMTM1%2FMDAxNTk3MDE5NDQxNzY0.RZKp0VZQqlMtgQIC4b_OTFJYUE2a2DW08dygsJo0lMwg.Iq9h7qa6ZS898zq-1OZk4mZ76JUqadlHlEveTCcjXWkg.JPEG.nodoubt1978%2F%25BE%25F6%25B8%25B6%25BB%25FD%25BD%25C5%25B8%25F0%25C0%25D3_17.jpg&type=sc960_832" width="300" height="350">
+                                <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAxOTA3MTNfMTUg%2FMDAxNTYyOTg2NzI5NjI5.BzEomVPN2qRJD_LEWmEK3YeqxFa5VhLZeBiGv_PLma4g.eXYL0c-0eM0jy5RteWM19lUlkO0U1Zs9Tm6Eoj6gsPUg.JPEG%2F20190712_122426.jpg&type=sc960_832" width="300" height="350">
                                 <p>(1) 로맨스 영화</p>  
                                 <div class="d-flex justify-content-between">
                                     <input type="checkbox" class="form-check-input" name="question1" value="a"> 매우 좋음
@@ -438,7 +437,7 @@
                                 </div>
                                 <br><br><br><br><br>
                                 <p>4-2. 비가 많이 내리는 날에 어떤 영화 장르를 보고 싶나요?</p>
-                                <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxNzA3MDdfMzkg%2FMDAxNDk5NDAzMjg2MTYy.C8eQffpUPJHkSYntzIIm4lJ8VnVJQRoICevk9mtddssg.HApc0LQf6EyO2NHf4IAblKvsENIPj75WeM4bbKfT9awg.JPEG.przd0500%2Fa22627a7f72656d72fa3b0550ee5bb8e.jpg&type=sc960_832" width="300" height="350">
+                                <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTEwMTNfNDMg%2FMDAxNjM0MTAwMzAxMTA3.X9WJ2NE_fuCg-sku9rpB7hwnDDPPVjy3hqDc9sx1s2Qg.EXz7eneQdwCDXtitq1la5kBtxXrnLs3WibQNSLf7-aog.JPEG.toni2000%2F20211013%25A3%25DF133949.jpg&type=sc960_832" width="300" height="350">
                                 <p>(1) 로맨스 영화</p>  
                                 <div class="d-flex justify-content-between">
                                     <input type="checkbox" class="form-check-input" name="question1" value="a"> 매우 좋음
@@ -464,14 +463,13 @@
                                     <input type="checkbox" class="form-check-input" name="question1" value="e"> 매우 나쁨
                                 </div>                      
                                 </div>
-
                             </div>
                         </div>
                 </div>
             </div>
 
 
-
+            <button type="button" class="btn btn-primary">Submit</button>
 
         </main>
     </div>

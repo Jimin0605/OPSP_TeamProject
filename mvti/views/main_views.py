@@ -99,4 +99,19 @@ def test():
         for genre in movie.genres:
             print(genre.name)
 
-    return render_template('test_movie.html', movie_list=movies_data)
+    a = 'test'
+
+    return render_template('test_movie.html', movie_list=movies_data, a=a)
+
+
+@bp.route('/charts')
+def charts():
+    return render_template('charts.html')
+
+@bp.route('/question2')
+def question2():
+    return render_template('question2.html')
+
+@bp.route('/recommend')
+def recommend():
+    return render_template('recommend.html')

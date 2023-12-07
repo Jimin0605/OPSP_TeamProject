@@ -1,5 +1,6 @@
 {% if movie_list %}
 {% for movie in movie_list %}
+{{ a }}
     <div class="movie">
         <h2>{{ movie.title }}</h2>
         <img src="http://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" alt="{{ movie.title }}" width="250">
