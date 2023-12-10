@@ -1,7 +1,8 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from mvti import db
 from mvti.models import Movie, Genre
+from mvti.forms import QuestionForm
 import json
 
 
@@ -14,9 +15,16 @@ def index():
     return render_template('index.html')
 
 
-@bp.route('/hello')
-def hello():
-    return 'hello world'
+
+@bp.route('/hello', methods=['GET', 'POST'])
+def your_route():
+    form = QuestionForm()
+
+    if form.validate_on_submit():
+        selected_answers = form.answer.data
+        # 여기에서 선택된 답변을 처리하거나 저장할 수 있음
+
+    return render_template('test/test.html', form=form)
 
 def save_genre():
     genres_list = [
@@ -100,6 +108,7 @@ def test():
             print(genre.name)
 
     a = 'test'
+    
 
     return render_template('test_movie.html', movie_list=movies_data, a=a)
 
