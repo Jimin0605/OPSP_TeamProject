@@ -2,12 +2,12 @@
 {% block content %}
 <body>
     <div class="container">
-        <h5 class="my-3 border-bottom pb-2">Login</h5>
+        <h5 class="my-3 border-bottom pb-2">Sing in</h5>
         <form method="post">
             {{ form.csrf_token }}
             {% include "form_errors.html" %}
             <div class="mb-3">
-                <label for="username">User name</label>
+                <label for="username">Username</label>
                 <input type="text" class="form-control" name="username" id="username"
                     value="{{ form.username.data or '' }}">
             </div>
@@ -16,7 +16,7 @@
                 <input type="password" class="form-control" name="password" id="password"
                     value="{{ form.password.data or '' }}">
             </div>
-            <button type="submit" class="btn btn-primary">login</button>
+            <button type="submit" class="btn btn-primary">Sign in</button>
         </form>
     </div>
 </body>

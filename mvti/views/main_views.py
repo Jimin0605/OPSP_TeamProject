@@ -1,9 +1,10 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from mvti import db
 from mvti.models import Movie, Genre
 import json
 
+from mvti.forms import QuestionForm
 from mvti.views.auth_views import login_required
 
 bp = Blueprint('main', __name__, url_prefix='/')
@@ -11,7 +12,8 @@ bp = Blueprint('main', __name__, url_prefix='/')
 
 @bp.route('/')
 def index():
-    return render_template('index.html')
+    form = QuestionForm()
+    return render_template('index.html', form=form)
 
 
 
@@ -95,6 +97,28 @@ def init_db():
     return render_template('test_movie.html', movie_name=movie_name, movie_genres=movie_genres)
 
 
+# @bp.route('/test')
+# @login_required
+# def test():
+#     movies_data = Movie.query.order_by(Movie.popularity.desc()).all()
+#     for movie in movies_data:
+#         print(movie.title)
+#         for genre in movie.genres:
+#             print(genre.name)
+
+#     return render_template('test_movie.html', movie_list=movies_data)
+
+
+@bp.route('/charts')
+def charts():
+    return render_template('charts.html')
+
+@bp.route('/recommend')
+def recommend():
+    return render_template('recommend.html')
+
+
+
 @bp.route('/test')
 @login_required
 def test():
@@ -107,15 +131,15 @@ def test():
     return render_template('test_movie.html', movie_list=movies_data)
 
 
-@bp.route('/charts')
-def charts():
-    return render_template('charts.html')
+from flask import render_template
 
-@bp.route('/question2')
-def question2():
-    return render_template('question2.html')
+@bp.route('/your_route', methods=['GET', 'POST'])
+def your_route():
+    form = QuestionForm()
 
+    if form.validate_on_submit():
+        selected_answer = form.question1.data
+    else:
+        return redirect(url_for('main.index'))
 
-@bp.route('/recommend')
-def recommend():
-    return render_template('recommend.html')
+    return render_template('test/test.html', form=form, selected_answer=selected_answer)

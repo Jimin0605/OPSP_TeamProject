@@ -7,7 +7,7 @@ var ctx = document.getElementById("myBarChart");
 var myLineChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["로맨스", "액션", "코미디", "April", "May", "June"],
+    labels: ["(1) SF", "(2) 음악, 로맨스", "(3) 판타지, 모험", "(4) 역사, 전쟁", "(5) 범죄, 스릴러", "(6) 공포"],
     datasets: [{
       label: "Revenue",
       backgroundColor: "rgba(2,117,216,1)",

@@ -44,11 +44,33 @@ class GenreInterest(db.Model):
     interest_level = db.Column(db.Integer, nullable=False)
 
     user = db.relationship('User', back_populates='genre_interests')
-# class Genre_weight(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     genre_id = db.Column(db.Integer, db.ForeignKey('genre.id'))
-#     weight = db.Column(db.Integer, nullable=False)
-#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+
+class Genre_weight(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    genre_id = db.Column(db.Integer, db.ForeignKey('genre.id'))
+    weight = db.Column(db.Integer, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+
+class Weather(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    sunny1 = db.Column(db.String(10), nullable=False)
+    sunny2 = db.Column(db.String(10), nullable=False)
+    sunny3 = db.Column(db.String(10), nullable=False)
+    sunny4 = db.Column(db.String(10), nullable=False)
+
+    cloudy1 = db.Column(db.String(10), nullable=False)
+    cloudy2 = db.Column(db.String(10), nullable=False)
+    cloudy3 = db.Column(db.String(10), nullable=False)
+    cloudy4 = db.Column(db.String(10), nullable=False)
+
+    snowy1 = db.Column(db.String(10), nullable=False)
+    snowy2 = db.Column(db.String(10), nullable=False)
+
+    raining1 = db.Column(db.String(10), nullable=False)
+    raining2 = db.Column(db.String(10), nullable=False)
+
 
 
 # 질문 모델 정의

@@ -2,80 +2,14 @@
 
 {% block content %}
 
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="{{ url_for('main.index') }}">MVTI</a>
-    <!-- Sidebar Toggle-->
-    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
-            class="fas fa-bars"></i></button>
-    <!-- Navbar Search-->
-    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-        
-    </form>
-    <!-- Navbar-->
-    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#!">Login</a></li>
-                <li><a class="dropdown-item" href="#!">Logout</a></li>
-            </ul>
-        </li>
-    </ul>
-</nav>
+
 <div id="layoutSidenav">
     <div id="layoutSidenav_nav">
         <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
             <div class="sb-sidenav-menu">
                 <div class="nav">
-                    <div class="sb-sidenav-menu-heading">Core</div>
-                    <a class="nav-link" href="index.html">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Dashboard
-                    </a>
-                    <div class="sb-sidenav-menu-heading">Interface</div>
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
-                        aria-expanded="false" aria-controls="collapseLayouts">
-                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                        Layouts
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                    </a>
-                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
-                        data-bs-parent="#sidenavAccordion">
-                        <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="layout-static.html">Static Navigation</a>
 
-                        </nav>
-                    </div>
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
-                        aria-expanded="false" aria-controls="collapsePages">
-                        <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                        Pages
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                    </a>
-                    <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
-                        data-bs-parent="#sidenavAccordion">
-                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                                data-bs-target="#pagesCollapseAuth" aria-expanded="false"
-                                aria-controls="pagesCollapseAuth">
-                                Authentication
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
-                                data-bs-parent="#sidenavAccordionPages">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="login.html">Login</a>
-                                    <a class="nav-link" href="register.html">Register</a>
-                                    <a class="nav-link" href="password.html">Forgot Password</a>
-                                </nav>
-                            </div>
-
-
-                        </nav>
-                    </div>
-                    <div class="sb-sidenav-menu-heading">Addons</div>
+                    <div class="sb-sidenav-menu-heading">result</div>
                     <a class="nav-link" href="{{ url_for('main.charts') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                         Charts
@@ -94,16 +28,7 @@
         <main>
             <div class="container-fluid px-4">
                 <h1 class="mt-4">MVTI</h1>
-                <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item active">나이를 선택하세요</li>
-                </ol>
-
-                <div id="ageSlider">
-                    <div id="ageHandle"></div>
-                </div>
-
-                <span id="selectedAge">Selected Age: <span id="ageValue">25</span></span>
-                <br><br><br><br>
+                
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active">영화 장르는 6가지 입니다</li>
                 </ol>
@@ -116,7 +41,7 @@
                 </p>
                 <br><br><br>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item active">MVTI 검사 질문 <br> (총 2개의 영화 장르를 선택하세요)</li>
+                    <li class="breadcrumb-item active">MVTI 검사 질문 <br> (1개의 영화 장르를 선택하세요)</li>
                 </ol>
 
 
@@ -127,296 +52,32 @@
                 <div class="col-md-6"></div>
                 <div class="card" style="background-color: rgb(197, 168, 64); color: white;">
 
-                    <div class="question">
-                        <br><br>
-                        <p style="font-weight: bold; font-size: 18px;">1-1. 화창하고 20도 이상의 더운 날씨에 어떤 영화 장르를 보고 싶나요?</p>
-
-                        <div class="movie-genre d-flex justify-content-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100">
-                                    <div class="d-flex justify-content-center align-items-center w-100">
-                                        <input type="checkbox" class="form-check-input rating-radio" name="genre1"
-                                            value="a"> (1) SF
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-                       
-
-                        <div class="movie-genre d-flex justify-content-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100">
-                                    <div class="d-flex justify-content-center align-items-center w-100">
-                                        <input type="checkbox" class="form-check-input rating-radio" name="genre2"
-                                            value="b"> (2) 음악, 로맨스
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="movie-genre d-flex justify-content-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100">
-                                    <div class="d-flex justify-content-center align-items-center w-100">
-                                        <input type="checkbox" class="form-check-input rating-radio" name="genre3"
-                                            value="c"> (3) 판타지, 모험, 애니메이션, 코미디
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="movie-genre d-flex justify-content-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100">
-                                    <div class="d-flex justify-content-center align-items-center w-100">
-                                        <input type="checkbox" class="form-check-input rating-radio" name="genre4"
-                                            value="d"> (4) 역사, 전쟁
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="movie-genre d-flex justify-content-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100">
-                                    <div class="d-flex justify-content-center align-items-center w-100">
-                                        <input type="checkbox" class="form-check-input rating-radio" name="genre5"
-                                            value="e"> (5) 범죄, 스릴러, 액션
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="movie-genre d-flex justify-content-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100">
-                                    <div class="d-flex justify-content-center align-items-center w-100">
-                                        <input type="checkbox" class="form-check-input rating-radio" name="genre6"
-                                            value="f"> (6) 공포, 미스터리
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <br><br><br><br><br>
-
-
-                        <div class="question">
-                            <p style="font-weight: bold; font-size: 18px;">1-2. 화창하고 10도 이상의 산책하기 좋은 날씨에 어떤 영화 장르를 보고
-                                싶나요?</p>
-
-                            <div class="movie-genre d-flex justify-content-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary w-100">
-                                        <div class="d-flex justify-content-center align-items-center w-100">
-                                            <input type="checkbox" class="form-check-input rating-radio" name="genre1"
-                                                value="a"> (1) SF
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="movie-genre d-flex justify-content-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary w-100">
-                                        <div class="d-flex justify-content-center align-items-center w-100">
-                                            <input type="checkbox" class="form-check-input rating-radio" name="genre2"
-                                                value="b"> (2) 음악, 로맨스
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="movie-genre d-flex justify-content-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary w-100">
-                                        <div class="d-flex justify-content-center align-items-center w-100">
-                                            <input type="checkbox" class="form-check-input rating-radio" name="genre3"
-                                                value="c"> (3) 판타지, 모험, 애니메이션, 코미디
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="movie-genre d-flex justify-content-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary w-100">
-                                        <div class="d-flex justify-content-center align-items-center w-100">
-                                            <input type="checkbox" class="form-check-input rating-radio" name="genre4"
-                                                value="d"> (4) 역사, 전쟁
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="movie-genre d-flex justify-content-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary w-100">
-                                        <div class="d-flex justify-content-center align-items-center w-100">
-                                            <input type="checkbox" class="form-check-input rating-radio" name="genre5"
-                                                value="e"> (5) 범죄, 스릴러, 액션
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="movie-genre d-flex justify-content-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary w-100">
-                                        <div class="d-flex justify-content-center align-items-center w-100">
-                                            <input type="checkbox" class="form-check-input rating-radio" name="genre6"
-                                                value="f"> (6) 공포, 미스터리
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <br><br><br><br><br>
-
-                            <div class="question">
-                                <p style="font-weight: bold; font-size: 18px;">1-3. 화창하고 시원한 가을날씨에 어떤 영화 장르를 보고 싶나요?</p>
-
-                                <div class="movie-genre d-flex justify-content-center">
-                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-secondary w-100">
-                                            <div class="d-flex justify-content-center align-items-center w-100">
-                                                <input type="checkbox" class="form-check-input rating-radio"
-                                                    name="genre1" value="a"> (1) SF
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="movie-genre d-flex justify-content-center">
-                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-secondary w-100">
-                                            <div class="d-flex justify-content-center align-items-center w-100">
-                                                <input type="checkbox" class="form-check-input rating-radio"
-                                                    name="genre2" value="b"> (2) 음악, 로맨스
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="movie-genre d-flex justify-content-center">
-                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-secondary w-100">
-                                            <div class="d-flex justify-content-center align-items-center w-100">
-                                                <input type="checkbox" class="form-check-input rating-radio"
-                                                    name="genre3" value="c"> (3) 판타지, 모험, 애니메이션, 코미디
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="movie-genre d-flex justify-content-center">
-                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-secondary w-100">
-                                            <div class="d-flex justify-content-center align-items-center w-100">
-                                                <input type="checkbox" class="form-check-input rating-radio"
-                                                    name="genre4" value="d"> (4) 역사, 전쟁
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="movie-genre d-flex justify-content-center">
-                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-secondary w-100">
-                                            <div class="d-flex justify-content-center align-items-center w-100">
-                                                <input type="checkbox" class="form-check-input rating-radio"
-                                                    name="genre5" value="e"> (5) 범죄, 스릴러, 액션
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="movie-genre d-flex justify-content-center">
-                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-secondary w-100">
-                                            <div class="d-flex justify-content-center align-items-center w-100">
-                                                <input type="checkbox" class="form-check-input rating-radio"
-                                                    name="genre6" value="f"> (6) 공포, 미스터리
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <br><br><br><br><br>
-
-                                <div class="question">
-                                    <p style="font-weight: bold; font-size: 18px;">1-4. 화창하고 추운 겨울날씨에 어떤 영화 장르를 보고 싶나요?
-                                    </p>
-
-                                    <div class="movie-genre d-flex justify-content-center">
-                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            <label class="btn btn-secondary w-100">
-                                                <div class="d-flex justify-content-center align-items-center w-100">
-                                                    <input type="checkbox" class="form-check-input rating-radio"
-                                                        name="genre1" value="a"> (1) SF
-                                                </div>
+                        <div class="container mt-5">
+                            <form method="POST" action="{{ url_for('main.your_route') }}">
+                                {{ form.csrf_token }}
+                        
+                                {% for question_field in [form.question1, form.question2, form.question3, form.question4] %}
+                                <div class="form-group {% if loop.first %}mb-4{% endif %}">
+                                    <!-- Add mb-4 (margin-bottom: 1rem) to the first set of questions -->
+                                    <label for="{{ question_field.id }}" style="font-weight: bold; font-size: 18px;">{{ question_field.label }}</label>
+                        
+                                    {% for subfield in question_field %}
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="{{ subfield.name }}"
+                                                   id="{{ subfield.id }}" value="{{ subfield.data }}" {% if subfield.data
+                                                   %}checked{% endif %}>
+                                            <label class="form-check-label" for="{{ subfield.id }}">
+                                                {{ subfield.label }}
                                             </label>
                                         </div>
-                                    </div>
-
-                                    <div class="movie-genre d-flex justify-content-center">
-                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            <label class="btn btn-secondary w-100">
-                                                <div class="d-flex justify-content-center align-items-center w-100">
-                                                    <input type="checkbox" class="form-check-input rating-radio"
-                                                        name="genre2" value="b"> (2) 음악, 로맨스
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="movie-genre d-flex justify-content-center">
-                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            <label class="btn btn-secondary w-100">
-                                                <div class="d-flex justify-content-center align-items-center w-100">
-                                                    <input type="checkbox" class="form-check-input rating-radio"
-                                                        name="genre3" value="c"> (3) 판타지, 모험, 애니메이션, 코미디
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="movie-genre d-flex justify-content-center">
-                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            <label class="btn btn-secondary w-100">
-                                                <div class="d-flex justify-content-center align-items-center w-100">
-                                                    <input type="checkbox" class="form-check-input rating-radio"
-                                                        name="genre4" value="d"> (4) 역사, 전쟁
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="movie-genre d-flex justify-content-center">
-                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            <label class="btn btn-secondary w-100">
-                                                <div class="d-flex justify-content-center align-items-center w-100">
-                                                    <input type="checkbox" class="form-check-input rating-radio"
-                                                        name="genre5" value="e"> (5) 범죄, 스릴러, 액션
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="movie-genre d-flex justify-content-center">
-                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            <label class="btn btn-secondary w-100">
-                                                <div class="d-flex justify-content-center align-items-center w-100">
-                                                    <input type="checkbox" class="form-check-input rating-radio"
-                                                        name="genre6" value="f"> (6) 공포, 미스터리
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
+                                    {% endfor %}
+                                    <br><br>
                                 </div>
-                            </div>
+                                {% endfor %}
+                        
+                                
+                            </form>
                         </div>
-                    </div>
                 </div>
 
 
@@ -429,295 +90,34 @@
                 <div class="col-md-6"></div>
                 <div class="card" style="background-color: rgb(53, 120, 120); color: white;">
 
-                    <div class="question">
-                        <br><br>
-                        <p style="font-weight: bold; font-size: 18px;">2-1. 흐리고 20도 이상의 여름날씨에 어떤 영화 장르를 보고 싶나요?</p>
-
-                        <div class="movie-genre d-flex justify-content-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100">
-                                    <div class="d-flex justify-content-center align-items-center w-100">
-                                        <input type="checkbox" class="form-check-input rating-radio" name="genre1"
-                                            value="a"> (1) SF
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="movie-genre d-flex justify-content-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100">
-                                    <div class="d-flex justify-content-center align-items-center w-100">
-                                        <input type="checkbox" class="form-check-input rating-radio" name="genre2"
-                                            value="b"> (2) 음악, 로맨스
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="movie-genre d-flex justify-content-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100">
-                                    <div class="d-flex justify-content-center align-items-center w-100">
-                                        <input type="checkbox" class="form-check-input rating-radio" name="genre3"
-                                            value="c"> (3) 판타지, 모험, 애니메이션, 코미디
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="movie-genre d-flex justify-content-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100">
-                                    <div class="d-flex justify-content-center align-items-center w-100">
-                                        <input type="checkbox" class="form-check-input rating-radio" name="genre4"
-                                            value="d"> (4) 역사, 전쟁
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="movie-genre d-flex justify-content-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100">
-                                    <div class="d-flex justify-content-center align-items-center w-100">
-                                        <input type="checkbox" class="form-check-input rating-radio" name="genre5"
-                                            value="e"> (5) 범죄, 스릴러, 액션
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="movie-genre d-flex justify-content-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100">
-                                    <div class="d-flex justify-content-center align-items-center w-100">
-                                        <input type="checkbox" class="form-check-input rating-radio" name="genre6"
-                                            value="f"> (6) 공포, 미스터리
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <br><br><br><br><br>
 
 
-                        <div class="question">
-                            <p style="font-weight: bold; font-size: 18px;">2-2. 흐리고 10도 이상의 산책하기 좋은 날씨에 어떤 영화 장르를 보고
-                                싶나요?</p>
-
-                            <div class="movie-genre d-flex justify-content-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary w-100">
-                                        <div class="d-flex justify-content-center align-items-center w-100">
-                                            <input type="checkbox" class="form-check-input rating-radio" name="genre1"
-                                                value="a"> (1) SF
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="movie-genre d-flex justify-content-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary w-100">
-                                        <div class="d-flex justify-content-center align-items-center w-100">
-                                            <input type="checkbox" class="form-check-input rating-radio" name="genre2"
-                                                value="b"> (2) 음악, 로맨스
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="movie-genre d-flex justify-content-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary w-100">
-                                        <div class="d-flex justify-content-center align-items-center w-100">
-                                            <input type="checkbox" class="form-check-input rating-radio" name="genre3"
-                                                value="c"> (3) 판타지, 모험, 애니메이션, 코미디
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="movie-genre d-flex justify-content-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary w-100">
-                                        <div class="d-flex justify-content-center align-items-center w-100">
-                                            <input type="checkbox" class="form-check-input rating-radio" name="genre4"
-                                                value="d"> (4) 역사, 전쟁
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="movie-genre d-flex justify-content-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary w-100">
-                                        <div class="d-flex justify-content-center align-items-center w-100">
-                                            <input type="checkbox" class="form-check-input rating-radio" name="genre5"
-                                                value="e"> (5) 범죄, 스릴러, 액션
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="movie-genre d-flex justify-content-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary w-100">
-                                        <div class="d-flex justify-content-center align-items-center w-100">
-                                            <input type="checkbox" class="form-check-input rating-radio" name="genre6"
-                                                value="f"> (6) 공포, 미스터리
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <br><br><br><br><br>
-
-                            <div class="question">
-                                <p style="font-weight: bold; font-size: 18px;">2-3. 흐리고 시원한 가을날씨에 어떤 영화 장르를 보고 싶나요?</p>
-
-                                <div class="movie-genre d-flex justify-content-center">
-                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-secondary w-100">
-                                            <div class="d-flex justify-content-center align-items-center w-100">
-                                                <input type="checkbox" class="form-check-input rating-radio"
-                                                    name="genre1" value="a"> (1) SF
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="movie-genre d-flex justify-content-center">
-                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-secondary w-100">
-                                            <div class="d-flex justify-content-center align-items-center w-100">
-                                                <input type="checkbox" class="form-check-input rating-radio"
-                                                    name="genre2" value="b"> (2) 음악, 로맨스
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="movie-genre d-flex justify-content-center">
-                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-secondary w-100">
-                                            <div class="d-flex justify-content-center align-items-center w-100">
-                                                <input type="checkbox" class="form-check-input rating-radio"
-                                                    name="genre3" value="c"> (3) 판타지, 모험, 애니메이션, 코미디
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="movie-genre d-flex justify-content-center">
-                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-secondary w-100">
-                                            <div class="d-flex justify-content-center align-items-center w-100">
-                                                <input type="checkbox" class="form-check-input rating-radio"
-                                                    name="genre4" value="d"> (4) 역사, 전쟁
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="movie-genre d-flex justify-content-center">
-                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-secondary w-100">
-                                            <div class="d-flex justify-content-center align-items-center w-100">
-                                                <input type="checkbox" class="form-check-input rating-radio"
-                                                    name="genre5" value="e"> (5) 범죄, 스릴러, 액션
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="movie-genre d-flex justify-content-center">
-                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-secondary w-100">
-                                            <div class="d-flex justify-content-center align-items-center w-100">
-                                                <input type="checkbox" class="form-check-input rating-radio"
-                                                    name="genre6" value="f"> (6) 공포, 미스터리
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <br><br><br><br><br>
-
-                                <div class="question">
-                                    <p style="font-weight: bold; font-size: 18px;">2-4. 흐리고 추운 겨울날씨에 어떤 영화 장르를 보고 싶나요?
-                                    </p>
-
-                                    <div class="movie-genre d-flex justify-content-center">
-                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            <label class="btn btn-secondary w-100">
-                                                <div class="d-flex justify-content-center align-items-center w-100">
-                                                    <input type="checkbox" class="form-check-input rating-radio"
-                                                        name="genre1" value="a"> (1) SF
-                                                </div>
+                        <div class="container mt-5">
+                            <form method="POST" action="{{ url_for('main.your_route') }}">
+                                {{ form.csrf_token }}
+                        
+                                {% for question_field in [form.question5, form.question6, form.question7, form.question8] %}
+                                <div class="form-group {% if loop.first %}mb-4{% endif %}">
+                                    <!-- Add mb-4 (margin-bottom: 1rem) to the first set of questions -->
+                                    <label for="{{ question_field.id }}" style="font-weight: bold; font-size: 18px;">{{ question_field.label }}</label>
+                        
+                                    {% for subfield in question_field %}
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="{{ subfield.name }}"
+                                                   id="{{ subfield.id }}" value="{{ subfield.data }}" {% if subfield.data
+                                                   %}checked{% endif %}>
+                                            <label class="form-check-label" for="{{ subfield.id }}">
+                                                {{ subfield.label }}
                                             </label>
                                         </div>
-                                    </div>
-
-                                    <div class="movie-genre d-flex justify-content-center">
-                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            <label class="btn btn-secondary w-100">
-                                                <div class="d-flex justify-content-center align-items-center w-100">
-                                                    <input type="checkbox" class="form-check-input rating-radio"
-                                                        name="genre2" value="b"> (2) 음악, 로맨스
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="movie-genre d-flex justify-content-center">
-                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            <label class="btn btn-secondary w-100">
-                                                <div class="d-flex justify-content-center align-items-center w-100">
-                                                    <input type="checkbox" class="form-check-input rating-radio"
-                                                        name="genre3" value="c"> (3) 판타지, 모험, 애니메이션, 코미디
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="movie-genre d-flex justify-content-center">
-                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            <label class="btn btn-secondary w-100">
-                                                <div class="d-flex justify-content-center align-items-center w-100">
-                                                    <input type="checkbox" class="form-check-input rating-radio"
-                                                        name="genre4" value="d"> (4) 역사, 전쟁
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="movie-genre d-flex justify-content-center">
-                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            <label class="btn btn-secondary w-100">
-                                                <div class="d-flex justify-content-center align-items-center w-100">
-                                                    <input type="checkbox" class="form-check-input rating-radio"
-                                                        name="genre5" value="e"> (5) 범죄, 스릴러, 액션
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="movie-genre d-flex justify-content-center">
-                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            <label class="btn btn-secondary w-100">
-                                                <div class="d-flex justify-content-center align-items-center w-100">
-                                                    <input type="checkbox" class="form-check-input rating-radio"
-                                                        name="genre6" value="f"> (6) 공포, 미스터리
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
+                                    {% endfor %}
+                                    <br><br>
                                 </div>
-                            </div>
+                                {% endfor %}
+
+                            </form>
                         </div>
-                    </div>
+
                 </div>
 
 
@@ -734,151 +134,33 @@
 
                 <div class="col-md-6"></div>
                 <div class="card" style="background-color: rgb(64, 107, 156); color: white;">
-
-                    <div class="question">
-                        <br><br>
-                        <p style="font-weight: bold; font-size: 18px;">3-1. 조금씩 잘게 내리는 가랑눈이 내리는 날에 어떤 영화 장르를 보고 싶나요?</p>
-
                         
-                        <div class="movie-genre d-flex justify-content-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100">
-                                    <div class="d-flex justify-content-center align-items-center w-100">
-                                        <input type="checkbox" class="form-check-input rating-radio" name="genre1"
-                                            value="a"> (1) SF
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="movie-genre d-flex justify-content-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100">
-                                    <div class="d-flex justify-content-center align-items-center w-100">
-                                        <input type="checkbox" class="form-check-input rating-radio" name="genre2"
-                                            value="b"> (2) 음악, 로맨스
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="movie-genre d-flex justify-content-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100">
-                                    <div class="d-flex justify-content-center align-items-center w-100">
-                                        <input type="checkbox" class="form-check-input rating-radio" name="genre3"
-                                            value="c"> (3) 판타지, 모험, 애니메이션, 코미디
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="movie-genre d-flex justify-content-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100">
-                                    <div class="d-flex justify-content-center align-items-center w-100">
-                                        <input type="checkbox" class="form-check-input rating-radio" name="genre4"
-                                            value="d"> (4) 역사, 전쟁
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="movie-genre d-flex justify-content-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100">
-                                    <div class="d-flex justify-content-center align-items-center w-100">
-                                        <input type="checkbox" class="form-check-input rating-radio" name="genre5"
-                                            value="e"> (5) 범죄, 스릴러, 액션
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="movie-genre d-flex justify-content-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100">
-                                    <div class="d-flex justify-content-center align-items-center w-100">
-                                        <input type="checkbox" class="form-check-input rating-radio" name="genre6"
-                                            value="f"> (6) 공포, 미스터리
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <br><br><br><br><br>
 
 
-                        <div class="question">
-                            <p style="font-weight: bold; font-size: 18px;">3-2. 함박눈이 펑펑 내리는 날에 어떤 영화 장르를 보고 싶나요?</p>
-
-                            <div class="movie-genre d-flex justify-content-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary w-100">
-                                        <div class="d-flex justify-content-center align-items-center w-100">
-                                            <input type="checkbox" class="form-check-input rating-radio" name="genre1"
-                                                value="a"> (1) SF
+                        <div class="container mt-5">
+                            <form method="POST" action="{{ url_for('main.your_route') }}">
+                                {{ form.csrf_token }}
+                        
+                                {% for question_field in [form.question9, form.question10] %}
+                                <div class="form-group {% if loop.first %}mb-4{% endif %}">
+                                    <!-- Add mb-4 (margin-bottom: 1rem) to the first set of questions -->
+                                    <label for="{{ question_field.id }}" style="font-weight: bold; font-size: 18px;">{{ question_field.label }}</label>
+                        
+                                    {% for subfield in question_field %}
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="{{ subfield.name }}"
+                                                   id="{{ subfield.id }}" value="{{ subfield.data }}" {% if subfield.data
+                                                   %}checked{% endif %}>
+                                            <label class="form-check-label" for="{{ subfield.id }}">
+                                                {{ subfield.label }}
+                                            </label>
                                         </div>
-                                    </label>
+                                    {% endfor %}
+                                    <br><br>
                                 </div>
-                            </div>
-
-                            <div class="movie-genre d-flex justify-content-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary w-100">
-                                        <div class="d-flex justify-content-center align-items-center w-100">
-                                            <input type="checkbox" class="form-check-input rating-radio" name="genre2"
-                                                value="b"> (2) 음악, 로맨스
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="movie-genre d-flex justify-content-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary w-100">
-                                        <div class="d-flex justify-content-center align-items-center w-100">
-                                            <input type="checkbox" class="form-check-input rating-radio" name="genre3"
-                                                value="c"> (3) 판타지, 모험, 애니메이션, 코미디
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="movie-genre d-flex justify-content-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary w-100">
-                                        <div class="d-flex justify-content-center align-items-center w-100">
-                                            <input type="checkbox" class="form-check-input rating-radio" name="genre4"
-                                                value="d"> (4) 역사, 전쟁
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="movie-genre d-flex justify-content-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary w-100">
-                                        <div class="d-flex justify-content-center align-items-center w-100">
-                                            <input type="checkbox" class="form-check-input rating-radio" name="genre5"
-                                                value="e"> (5) 범죄, 스릴러, 액션
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="movie-genre d-flex justify-content-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary w-100">
-                                        <div class="d-flex justify-content-center align-items-center w-100">
-                                            <input type="checkbox" class="form-check-input rating-radio" name="genre6"
-                                                value="f"> (6) 공포, 미스터리
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
+                                {% endfor %}
+                            </form>
                         </div>
-                    </div>
                 </div>
 
 
@@ -893,151 +175,34 @@
 
                 <div class="col-md-6"></div>
                 <div class="card" style="background-color: rgb(107, 44, 126); color: white;">
-
-                    <div class="question">
-                        <br><br>
-                        <p style="font-weight: bold; font-size: 18px;">4-1. 비가 후드득후드득 조금씩 내리는 날에 어떤 영화 장르를 보고 싶나요?</p>
-
-                        <div class="movie-genre d-flex justify-content-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100">
-                                    <div class="d-flex justify-content-center align-items-center w-100">
-                                        <input type="checkbox" class="form-check-input rating-radio" name="genre1"
-                                            value="a"> (1) SF
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="movie-genre d-flex justify-content-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100">
-                                    <div class="d-flex justify-content-center align-items-center w-100">
-                                        <input type="checkbox" class="form-check-input rating-radio" name="genre2"
-                                            value="b"> (2) 음악, 로맨스
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="movie-genre d-flex justify-content-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100">
-                                    <div class="d-flex justify-content-center align-items-center w-100">
-                                        <input type="checkbox" class="form-check-input rating-radio" name="genre3"
-                                            value="c"> (3) 판타지, 모험, 애니메이션, 코미디
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="movie-genre d-flex justify-content-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100">
-                                    <div class="d-flex justify-content-center align-items-center w-100">
-                                        <input type="checkbox" class="form-check-input rating-radio" name="genre4"
-                                            value="d"> (4) 역사, 전쟁
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="movie-genre d-flex justify-content-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100">
-                                    <div class="d-flex justify-content-center align-items-center w-100">
-                                        <input type="checkbox" class="form-check-input rating-radio" name="genre5"
-                                            value="e"> (5) 범죄, 스릴러, 액션
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="movie-genre d-flex justify-content-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary w-100">
-                                    <div class="d-flex justify-content-center align-items-center w-100">
-                                        <input type="checkbox" class="form-check-input rating-radio" name="genre6"
-                                            value="f"> (6) 공포, 미스터리
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <br><br><br><br><br>
-
-
-                        <div class="question">
-                            <p style="font-weight: bold; font-size: 18px;">4-2. 비가 많이 내리는 날에 어떤 영화 장르를 보고 싶나요?</p>
-
-                            <div class="movie-genre d-flex justify-content-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary w-100">
-                                        <div class="d-flex justify-content-center align-items-center w-100">
-                                            <input type="checkbox" class="form-check-input rating-radio" name="genre1"
-                                                value="a"> (1) SF
+                        
+                        <div class="container mt-5">
+                            <form method="POST" action="{{ url_for('main.your_route') }}">
+                                {{ form.csrf_token }}
+                        
+                                {% for question_field in [form.question11, form.question12] %}
+                                <div class="form-group {% if loop.first %}mb-4{% endif %}">
+                                    <!-- Add mb-4 (margin-bottom: 1rem) to the first set of questions -->
+                                    <label for="{{ question_field.id }}" style="font-weight: bold; font-size: 18px;">{{ question_field.label }}</label>
+                        
+                                    {% for subfield in question_field %}
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="{{ subfield.name }}"
+                                                   id="{{ subfield.id }}" value="{{ subfield.data }}" {% if subfield.data
+                                                   %}checked{% endif %}>
+                                            <label class="form-check-label" for="{{ subfield.id }}">
+                                                {{ subfield.label }}
+                                            </label>
                                         </div>
-                                    </label>
+                                    {% endfor %}
+                                    <br><br>
                                 </div>
-                            </div>
+                                {% endfor %}
 
-                            <div class="movie-genre d-flex justify-content-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary w-100">
-                                        <div class="d-flex justify-content-center align-items-center w-100">
-                                            <input type="checkbox" class="form-check-input rating-radio" name="genre2"
-                                                value="b"> (2) 음악, 로맨스
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="movie-genre d-flex justify-content-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary w-100">
-                                        <div class="d-flex justify-content-center align-items-center w-100">
-                                            <input type="checkbox" class="form-check-input rating-radio" name="genre3"
-                                                value="c"> (3) 판타지, 모험, 애니메이션, 코미디
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="movie-genre d-flex justify-content-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary w-100">
-                                        <div class="d-flex justify-content-center align-items-center w-100">
-                                            <input type="checkbox" class="form-check-input rating-radio" name="genre4"
-                                                value="d"> (4) 역사, 전쟁
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="movie-genre d-flex justify-content-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary w-100">
-                                        <div class="d-flex justify-content-center align-items-center w-100">
-                                            <input type="checkbox" class="form-check-input rating-radio" name="genre5"
-                                                value="e"> (5) 범죄, 스릴러, 액션
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="movie-genre d-flex justify-content-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary w-100">
-                                        <div class="d-flex justify-content-center align-items-center w-100">
-                                            <input type="checkbox" class="form-check-input rating-radio" name="genre6"
-                                                value="f"> (6) 공포, 미스터리
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
+                            </form>
                         </div>
+
                     </div>
-                </div>
             </div>
 
             <div class="text-center mt-3">
@@ -1045,6 +210,18 @@
             </div>
 
         </main>
+        <footer class="py-4 bg-light mt-auto">
+            <div class="container-fluid px-4">
+                <div class="d-flex align-items-center justify-content-between small">
+                    <div class="text-muted">Copyright © team.에융(김지민, 김소정, 손유경)</div>
+                    <div>
+                        <a href="#">Privacy Policy</a>
+                        &middot;
+                        <a href="#">Terms &amp; Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
 </div>
 {% endblock %}
