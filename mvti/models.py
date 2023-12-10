@@ -6,10 +6,15 @@ movie_genre_association = db.Table(
     db.Column('genre_id', db.Integer, db.ForeignKey('genre.id'))
 )
 
-# TODO: User 모델 정의
+# User 모델 정의
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(10), nullable=False)
+    password = db.Column(db.String(200), nullable=False)
+    age = db.Column(db.Integer, nullable=False)
+
+    # User와 GenreInterest 간의 일대다 관계 설정
+    genre_interests = db.relationship('GenreInterest', back_populates='user')
 
 
 # Movie 모델 정의
@@ -32,21 +37,35 @@ class Genre(db.Model):
     movies = db.relationship('Movie', secondary=movie_genre_association, back_populates='genres')
 
 
-class Genre_weight(db.Model):
+class GenreInterest(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    genre_id = db.Column(db.Integer, db.ForeignKey('genre.id'))
-    weight = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    genre_id = db.Column(db.Integer, db.ForeignKey('genre.id'))
+    interest_level = db.Column(db.Integer, nullable=False)
 
-# TODO: 질문과 답변 모델 정의
-class Question(db.Model):
+    user = db.relationship('User', back_populates='genre_interests')
+# class Genre_weight(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     genre_id = db.Column(db.Integer, db.ForeignKey('genre.id'))
+#     weight = db.Column(db.Integer, nullable=False)
+#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+
+# 질문 모델 정의
+class Question1(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     question = db.Column(db.String(40), nullable=False)
     weather = db.Column(db.String(20), nullable=False)
+    user_id = db.Column(db.Integer,db.ForeignKey('user.id'), nullable=False)
 
-
-class Answer(db.Model):
+class Question2(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    question_id = db.Column(db.Integer, db.ForeignKey('question.id'))
-    weight = db.Column(db.Integer, nullable=False)
-    answer = db.Column(db.String(40), nullable=False)
+    question = db.Column(db.String(40), nullable=False)
+
+
+
+# class Answer(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     question_id = db.Column(db.Integer, db.ForeignKey('question.id'))
+#     weight = db.Column(db.Integer, nullable=False)
+#     answer = db.Column(db.String(40), nullable=False)

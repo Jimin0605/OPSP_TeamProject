@@ -1,11 +1,10 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template
 from flask_sqlalchemy import SQLAlchemy
 from mvti import db
 from mvti.models import Movie, Genre
-from mvti.forms import QuestionForm
 import json
 
-
+from mvti.views.auth_views import login_required
 
 bp = Blueprint('main', __name__, url_prefix='/')
 
@@ -16,16 +15,7 @@ def index():
 
 
 
-@bp.route('/hello', methods=['GET', 'POST'])
-def your_route():
-    form = QuestionForm()
-
-    if form.validate_on_submit():
-        selected_answers = form.answer.data
-        # 여기에서 선택된 답변을 처리하거나 저장할 수 있음
-
-    return render_template('test/test.html', form=form)
-
+# ganre_id별 장르이름 데이터 생성
 def save_genre():
     genres_list = [
         {"Action": 28},
@@ -55,6 +45,11 @@ def save_genre():
             db.session.add(genre)
     db.session.commit()
 
+
+'''
+TMDB에서 추출하고 전처리시킨 json파일에서 데이터를 가져와
+각 Column에 맞게 DB에 저장
+ '''
 def save_movie_data(movie_data):
     movie = Movie(
         id=movie_data['id'],
@@ -99,7 +94,9 @@ def init_db():
 
     return render_template('test_movie.html', movie_name=movie_name, movie_genres=movie_genres)
 
+
 @bp.route('/test')
+@login_required
 def test():
     movies_data = Movie.query.order_by(Movie.popularity.desc()).all()
     for movie in movies_data:
@@ -107,10 +104,7 @@ def test():
         for genre in movie.genres:
             print(genre.name)
 
-    a = 'test'
-    
-
-    return render_template('test_movie.html', movie_list=movies_data, a=a)
+    return render_template('test_movie.html', movie_list=movies_data)
 
 
 @bp.route('/charts')
@@ -120,6 +114,7 @@ def charts():
 @bp.route('/question2')
 def question2():
     return render_template('question2.html')
+
 
 @bp.route('/recommend')
 def recommend():
