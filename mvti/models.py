@@ -12,10 +12,10 @@ class User(db.Model):
     username = db.Column(db.String(10), nullable=False)
     password = db.Column(db.String(200), nullable=False)
     age = db.Column(db.Integer, nullable=False)
+    set_weight = db.Column(db.Boolean, default=False)
 
     # User와 GenreInterest 간의 일대다 관계 설정
-    genre_interests = db.relationship('GenreInterest', back_populates='user')
-
+    # genre_weights = db.relationship('Genre_weight', back_populates='user')
 
 # Movie 모델 정의
 class Movie(db.Model):
@@ -36,40 +36,32 @@ class Genre(db.Model):
     name = db.Column(db.String(50), nullable=False)
     movies = db.relationship('Movie', secondary=movie_genre_association, back_populates='genres')
 
-
-class GenreInterest(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    genre_id = db.Column(db.Integer, db.ForeignKey('genre.id'))
-    interest_level = db.Column(db.Integer, nullable=False)
-
-    user = db.relationship('User', back_populates='genre_interests')
-
-
 class Genre_weight(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    genre_id = db.Column(db.Integer, db.ForeignKey('genre.id'))
-    weight = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    genre_id = db.Column(db.Integer, db.ForeignKey('genre.id'))
+    genre_weight = db.Column(db.Integer, nullable=False)
 
 
 class Weather(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    sunny1 = db.Column(db.String(10), nullable=False)
-    sunny2 = db.Column(db.String(10), nullable=False)
-    sunny3 = db.Column(db.String(10), nullable=False)
-    sunny4 = db.Column(db.String(10), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    
+    sunny1 = db.Column(db.String(10))
+    sunny2 = db.Column(db.String(10))
+    sunny3 = db.Column(db.String(10))
+    sunny4 = db.Column(db.String(10))
 
-    cloudy1 = db.Column(db.String(10), nullable=False)
-    cloudy2 = db.Column(db.String(10), nullable=False)
-    cloudy3 = db.Column(db.String(10), nullable=False)
-    cloudy4 = db.Column(db.String(10), nullable=False)
+    cloudy1 = db.Column(db.String(10))
+    cloudy2 = db.Column(db.String(10))
+    cloudy3 = db.Column(db.String(10))
+    cloudy4 = db.Column(db.String(10))
 
-    snowy1 = db.Column(db.String(10), nullable=False)
-    snowy2 = db.Column(db.String(10), nullable=False)
+    snowy1 = db.Column(db.String(10))
+    snowy2 = db.Column(db.String(10))
 
-    raining1 = db.Column(db.String(10), nullable=False)
-    raining2 = db.Column(db.String(10), nullable=False)
+    raining1 = db.Column(db.String(10))
+    raining2 = db.Column(db.String(10))
 
 
 

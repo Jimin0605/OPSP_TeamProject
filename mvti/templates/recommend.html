@@ -3,34 +3,16 @@
 {% block content %}
 
 
-<div id="layoutSidenav">
-    <div id="layoutSidenav_nav">
-        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-            <div class="sb-sidenav-menu">
-                <div class="nav">
-                    <div class="sb-sidenav-menu-heading">result</div>
-                    <a class="nav-link" href="{{ url_for('main.charts') }}">
-                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                        Charts
-                    </a>
-
-                </div>
-            </div>
-
-            <div class="sb-sidenav-footer">
-                <div class="small">Logged in as:</div>
-                Start Bootstrap
-            </div>
-        </nav>
-    </div>
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
                 <h1 class="mt-4">MVTI</h1>
         
-                <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item active">MVTI 검사 결과</li>
-                </ol>
+                <ol class="breadcrumb mb-1">
+                  <li class="breadcrumb-item active">
+                      <h3 class="fw-bold pb-2 mb-2">MVTI 검사 결과</h3>
+                  </li>
+              </ol>
 
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active">현재 날씨 : ☃️<br>
@@ -39,7 +21,7 @@
 
                 <div class="card-group">
                     <div class="card">
-                      <img src="https://search.pstatic.net/common?quality=75&direct=true&src=https%3A%2F%2Fmovie-phinf.pstatic.net%2F20170418_82%2F1492496178995pHxdA_JPEG%2Fmovie_image.jpg" class="card-img-top" alt="..." width="225" height="550">
+                      <img src="https://search.pstatic.net/common?quality=75&direct=true&src=https%3A%2F%2Fmovie-phinf.pstatic.net%2F20170418_82%2F1492496178995pHxdA_JPEG%2Fmovie_image.jpg" class="card-img-top" alt="..." width="225" height="650">
                       <div class="card-body">
                         <h5 class="card-title">겨울왕국</h5>
                         <p class="card-text">서로가 최고의 친구였던 자매 ‘엘사’와 ‘안나’. 하지만 언니 ‘엘사’에게는 하나뿐인 동생에게조차 말 못할 비밀이 있다. 모든 것을 얼려버리는 신비로운 힘이 바로 그것. ‘엘사’는 통제할 수 없는 자신의 힘이 두려워 왕국을 떠나고, 얼어버린 왕국의 저주를 풀기 위해 ‘안나’는 언니를 찾아 환상적인 여정을 떠나는데……</p>
@@ -49,7 +31,7 @@
                       </div>
                     </div>
                     <div class="card">
-                      <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA2MjNfMjcy%2FMDAxNjg3NDQ4MTk3NzY4.VUB7Sjry5E17yMmsCP3LMD7kSNoyFpyIjUnqbyLR1b4g.1xR5KsqFvLPlgfaAdOgfkshPpWt-Sr5ql4Bl5Bz9-Wgg.JPEG.cmqktk09%2FIMG_1527.jpg&type=sc960_832" class="card-img-top" alt="..." width="225" height="550">
+                      <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA2MjNfMjcy%2FMDAxNjg3NDQ4MTk3NzY4.VUB7Sjry5E17yMmsCP3LMD7kSNoyFpyIjUnqbyLR1b4g.1xR5KsqFvLPlgfaAdOgfkshPpWt-Sr5ql4Bl5Bz9-Wgg.JPEG.cmqktk09%2FIMG_1527.jpg&type=sc960_832" class="card-img-top" alt="..." width="225" height="650">
                       <div class="card-body">
                         <h5 class="card-title">엘리멘탈</h5>
                         <p class="card-text">불, 물, 공기, 흙 4개의 원소들이 살고 있는 ‘엘리멘트 시티’ 재치 있고 불처럼 열정 넘치는 ‘앰버'는 어느 날 우연히 유쾌하고 감성적이며 물 흐르듯 사는 '웨이드'를 만나 특별한 우정을 쌓으며, 지금껏 믿어온 모든 것들이 흔들리는 새로운 경험을 하게 되는데... 웰컴 투 ‘엘리멘트 시티’!</p>
@@ -59,7 +41,7 @@
                       </div>
                     </div>
                     <div class="card">
-                      <img src="https://search.pstatic.net/common?quality=75&direct=true&src=https%3A%2F%2Fmovie-phinf.pstatic.net%2F20231020_277%2F1697766507454EFUvK_JPEG%2Fmovie_image.jpg" class="card-img-top" alt="..." width="225" height="550">
+                      <img src="https://search.pstatic.net/common?quality=75&direct=true&src=https%3A%2F%2Fmovie-phinf.pstatic.net%2F20231020_277%2F1697766507454EFUvK_JPEG%2Fmovie_image.jpg" class="card-img-top" alt="..." width="225" height="650">
                       <div class="card-body">
                         <h5 class="card-title">3일의 휴가</h5>
                         <p class="card-text">“따님은 어머님을 보거나 목소리를 들을 수 없고요. 휴가 동안 좋은 기억만 담고 오시면 됩니다.” 죽은 지 3년째 되는 날, ‘복자’(김해숙)는 하늘에서 3일간의 휴가를 받아 규칙 안내를 맡은 신입 ‘가이드’(강기영)와 함께 지상에 내려온다. 미국 명문 대학교 교수인 자랑스러운 딸을 볼 생각에 설레던 마음도 잠시, 돌연 자신이 살던 시골집으로 돌아와 백반 장사를 시작한 ‘진주’(신민아)의 모습에 당황한다. 속 타는 엄마의 마음도 모르는 ‘진주’는 자신을 찾아온 단짝 ‘미진’(황보라)과 엄마의 레시피를 찾아가고, 낯익은 요리를 보자 서로의 추억이 되살아나는데…</p>
@@ -84,6 +66,5 @@
                 </div>
             </div>
         </footer>
-    </div>
-</div>
+   
 {% endblock %}

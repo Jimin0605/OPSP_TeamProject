@@ -2,214 +2,113 @@
 
 {% block content %}
 
-
+<!-- layoutSidenav: 사이드 내비게이션 -->
 <div id="layoutSidenav">
-    <div id="layoutSidenav_nav">
-        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-            <div class="sb-sidenav-menu">
-                <div class="nav">
-
-                    <div class="sb-sidenav-menu-heading">result</div>
-                    <a class="nav-link" href="{{ url_for('main.charts') }}">
-                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                        Charts
-                    </a>
-
-                </div>
-            </div>
-
-            <div class="sb-sidenav-footer">
-                <div class="small">Logged in as:</div>
-                Start Bootstrap
-            </div>
-        </nav>
-    </div>
+    <!-- layoutSidenav_content: 내비게이션 내용 -->
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
                 <h1 class="mt-4">MVTI</h1>
-                
+
+                <!-- MVTI 소개 -->
+                <ol class="breadcrumb mb-1">
+                    <li class="breadcrumb-item active">
+                        <h3 class="fw-bold border-bottom border-3 border-dark pb-2 mb-4">MVTI 소개</h3>
+                    </li>
+                </ol>
+                <div class="border border-3 border-dark p-2">
+                    <p>MVTI = movie type indicator<br>
+                        사용자의 성향과 현재 날씨를 같이 고려해서 어울리는 영화를 랜덤으로 추천해주는 서비스입니다.
+                    </p>
+                </div>
+
+                <br><br><br>
+
+                <!-- MVTI TEST 소개 -->
+                <ol class="breadcrumb mb-1">
+                    <li class="breadcrumb-item active">
+                        <h3 class="fw-bold border-bottom border-3 border-dark pb-2 mb-4">MVTI TEST 소개</h3>
+                    </li>
+                </ol>
+
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item active">영화 장르는 6가지 입니다</li>
+                    <li class="breadcrumb-item active">MVTI TEST 순서는 다음과 같습니다</li>
                 </ol>
-                <p>(1) SF<br>
-                    (2) 음악, 로맨스<br>
-                    (3) 판타지, 모험, 애니메이션, 코미디<br>
-                    (4) 역사, 전쟁<br>
-                    (5) 범죄, 스릴러, 액션<br>
-                    (6) 공포, 미스터리
-                </p>
-                <br><br><br>
-                <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item active">MVTI 검사 질문 <br> (1개의 영화 장르를 선택하세요)</li>
-                </ol>
+                <div class="border border-3 border-dark p-2">
+                    <p><mark>1. 날씨 별 선호하는 영화 장르를 조사합니다 (6개의 장르 중 한 가지 선택)</mark><br>
+                        - 맑은 날 선호하는 영화 장르를 조사<br>
+                        - 흐린 날 선호하는 영화 장르를 조사<br>
+                        - 비 오는 날 선호하는 영화 장르를 조사<br>
+                        - 눈 오는 날 선호하는 영화 장르를 조사<br>
 
-
-                <ol class="breadcrumb mb-4" style="background-color: rgb(197, 168, 64);">
-                    <li class="breadcrumb-item active" style="color: white;">맑은 날🌤️</li>
-                </ol>
-
-                <div class="col-md-6"></div>
-                <div class="card" style="background-color: rgb(197, 168, 64); color: white;">
-
-                        <div class="container mt-5">
-                            <form method="POST" action="{{ url_for('main.your_route') }}">
-                                {{ form.csrf_token }}
-                        
-                                {% for question_field in [form.question1, form.question2, form.question3, form.question4] %}
-                                <div class="form-group {% if loop.first %}mb-4{% endif %}">
-                                    <!-- Add mb-4 (margin-bottom: 1rem) to the first set of questions -->
-                                    <label for="{{ question_field.id }}" style="font-weight: bold; font-size: 18px;">{{ question_field.label }}</label>
-                        
-                                    {% for subfield in question_field %}
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="{{ subfield.name }}"
-                                                   id="{{ subfield.id }}" value="{{ subfield.data }}" {% if subfield.data
-                                                   %}checked{% endif %}>
-                                            <label class="form-check-label" for="{{ subfield.id }}">
-                                                {{ subfield.label }}
-                                            </label>
-                                        </div>
-                                    {% endfor %}
-                                    <br><br>
-                                </div>
-                                {% endfor %}
-                        
-                                
-                            </form>
+                        <ol class="breadcrumb mb-1">
+                            <li class="breadcrumb-item active">⦁ 영화 장르는 다음과 같이 총 6가지로 분류했습니다</li>
+                        </ol>
+                        <div class="border border-3 border-gray p-2">
+                            <p>(1) SF<br>
+                                (2) 음악, 로맨스<br>
+                                (3) 판타지, 모험, 애니메이션, 코미디<br>
+                                (4) 역사, 전쟁<br>
+                                (5) 범죄, 스릴러, 액션<br>
+                                (6) 공포, 미스터리
+                            </p>
                         </div>
+                        <br><br>
+
+                        <mark>2. 더 세부적으로 각 영화 장르에 대해 선호도를 조사합니다 (19개의 영화 장르의 선호도를 선택)</mark><br>
+                        - Action, Adventure, Animation, Comedy, Crime, Documentary, Drama, Family, Fantasy, History,
+                        Horror, Music, Mystery, Romance, Science Fiction, TV Movie, Thriller, War, Western<br>
+                        - 선호도: 매우 즐겨봄 / 즐겨봄 / 보통 / 즐겨보지 않음 / 전혀 즐겨보지 않음
+                    </p>
                 </div>
 
-
-                <div class="col-md-6"></div>
-                <br><br><br>
-                <ol class="breadcrumb mb-4" style="background-color: rgb(50, 120, 120);">
-                    <li class="breadcrumb-item active" style="color: white;">흐린 날☁️</li>
-                </ol>
-
-                <div class="col-md-6"></div>
-                <div class="card" style="background-color: rgb(53, 120, 120); color: white;">
-
-
-
-                        <div class="container mt-5">
-                            <form method="POST" action="{{ url_for('main.your_route') }}">
-                                {{ form.csrf_token }}
-                        
-                                {% for question_field in [form.question5, form.question6, form.question7, form.question8] %}
-                                <div class="form-group {% if loop.first %}mb-4{% endif %}">
-                                    <!-- Add mb-4 (margin-bottom: 1rem) to the first set of questions -->
-                                    <label for="{{ question_field.id }}" style="font-weight: bold; font-size: 18px;">{{ question_field.label }}</label>
-                        
-                                    {% for subfield in question_field %}
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="{{ subfield.name }}"
-                                                   id="{{ subfield.id }}" value="{{ subfield.data }}" {% if subfield.data
-                                                   %}checked{% endif %}>
-                                            <label class="form-check-label" for="{{ subfield.id }}">
-                                                {{ subfield.label }}
-                                            </label>
-                                        </div>
-                                    {% endfor %}
-                                    <br><br>
-                                </div>
-                                {% endfor %}
-
-                            </form>
-                        </div>
-
+                <!-- TEST 시작 버튼 -->
+                <div class="text-center mt-3">
+                    <button class="btn btn-secondary" onclick="submitAllForms()">TEST 하러 가기</button>
                 </div>
+                <br>
 
+                <!-- JavaScript 코드 -->
+                <script>
+                    function submitAllForms() {
+                        // 각 폼의 데이터를 수집하고 전송
+                        submitForm('form1');
+                        submitForm('form2');
+                        submitForm('form3');
+                        // ... 필요한 만큼 폼 추가
 
+                        // 필요에 따라 페이지 이동 등의 작업 수행
+                    }
 
+                    function submitForm(formId) {
+                        var form = document.getElementById(formId);
+                        var formData = new FormData(form);
 
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('POST', form.action, true);
+                        xhr.onload = function () {
+                            if (xhr.status >= 200 && xhr.status < 400) {
+                                // 성공적인 응답 처리
+                                console.log(xhr.responseText);
+                            } else {
+                                // 오류 응답 처리
+                                console.error(xhr.statusText);
+                            }
+                        };
+                        xhr.onerror = function () {
+                            // 통신 오류 처리
+                            console.error("Network Error");
+                        };
 
+                        // form 데이터 전송
+                        xhr.send(formData);
+                    }
+                </script>
 
-
-                <div class="col-md-6"></div>
-                <br><br><br>
-                <ol class="breadcrumb mb-4" style="background-color: rgb(64, 107, 156);">
-                    <li class="breadcrumb-item active" style="color: white;">눈오는 날☃️</li>
-                </ol>
-
-                <div class="col-md-6"></div>
-                <div class="card" style="background-color: rgb(64, 107, 156); color: white;">
-                        
-
-
-                        <div class="container mt-5">
-                            <form method="POST" action="{{ url_for('main.your_route') }}">
-                                {{ form.csrf_token }}
-                        
-                                {% for question_field in [form.question9, form.question10] %}
-                                <div class="form-group {% if loop.first %}mb-4{% endif %}">
-                                    <!-- Add mb-4 (margin-bottom: 1rem) to the first set of questions -->
-                                    <label for="{{ question_field.id }}" style="font-weight: bold; font-size: 18px;">{{ question_field.label }}</label>
-                        
-                                    {% for subfield in question_field %}
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="{{ subfield.name }}"
-                                                   id="{{ subfield.id }}" value="{{ subfield.data }}" {% if subfield.data
-                                                   %}checked{% endif %}>
-                                            <label class="form-check-label" for="{{ subfield.id }}">
-                                                {{ subfield.label }}
-                                            </label>
-                                        </div>
-                                    {% endfor %}
-                                    <br><br>
-                                </div>
-                                {% endfor %}
-                            </form>
-                        </div>
-                </div>
-
-
-
-
-
-                <div class="col-md-6"></div>
-                <br><br><br>
-                <ol class="breadcrumb mb-4" style="background-color: rgb(107, 44, 126);">
-                    <li class="breadcrumb-item active" style="color: white;">비오는 날☔</li>
-                </ol>
-
-                <div class="col-md-6"></div>
-                <div class="card" style="background-color: rgb(107, 44, 126); color: white;">
-                        
-                        <div class="container mt-5">
-                            <form method="POST" action="{{ url_for('main.your_route') }}">
-                                {{ form.csrf_token }}
-                        
-                                {% for question_field in [form.question11, form.question12] %}
-                                <div class="form-group {% if loop.first %}mb-4{% endif %}">
-                                    <!-- Add mb-4 (margin-bottom: 1rem) to the first set of questions -->
-                                    <label for="{{ question_field.id }}" style="font-weight: bold; font-size: 18px;">{{ question_field.label }}</label>
-                        
-                                    {% for subfield in question_field %}
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="{{ subfield.name }}"
-                                                   id="{{ subfield.id }}" value="{{ subfield.data }}" {% if subfield.data
-                                                   %}checked{% endif %}>
-                                            <label class="form-check-label" for="{{ subfield.id }}">
-                                                {{ subfield.label }}
-                                            </label>
-                                        </div>
-                                    {% endfor %}
-                                    <br><br>
-                                </div>
-                                {% endfor %}
-
-                            </form>
-                        </div>
-
-                    </div>
             </div>
-
-            <div class="text-center mt-3">
-                <input class="btn btn-primary" type="submit" value="Next">
-            </div>
-
         </main>
+
+        <!-- 페이지 하단에 위치한 footer -->
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid px-4">
                 <div class="d-flex align-items-center justify-content-between small">
@@ -224,4 +123,5 @@
         </footer>
     </div>
 </div>
+
 {% endblock %}

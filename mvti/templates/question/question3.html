@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<main>
+    <div class="container-fluid px-4">
+        <ol class="breadcrumb mb-4" style="background-color: rgb(64, 107, 156);">
+            <li class="breadcrumb-item active" style="color: white;">눈오는 날☃️</li>
+        </ol>
+
+        <div class="col-md-6"></div>
+        <div class="card" style="background-color: rgb(64, 107, 156); color: white;">
+
+            <div class="container mt-5">
+
+                <form method="POST">
+                    {{ form.csrf_token }}
+                
+                    {% for question_field in questions %}
+                        <div class="form-group {% if loop.first %}mb-4{% endif %}">
+                            <label for="{{ question_field.id }}" style="font-weight: bold; font-size: 18px;">{{ question_field.label }}</label>
+                
+                            {% for subfield in question_field %}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="{{ subfield.name }}"
+                                           id="{{ subfield.id }}" value="{{ subfield.data }}" {% if subfield.data %}checked{% endif %}>
+                                    <label class="form-check-label" for="{{ subfield.id }}">
+                                        {{ subfield.label }}
+                                    </label>
+                                </div>
+                            {% endfor %}
+                            <br><br>
+                        </div>
+                    {% endfor %}
+                
+                    <button type="submit" class="btn btn-primary">Next</button>
+                </form>
+                <br>
+            </div>
+        </div>
+
+
+        <div class="col-md-6"></div>
+    </div class="container-fluid px-4">
+</main>
+
+
+{% endblock %}
