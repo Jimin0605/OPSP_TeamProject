@@ -180,7 +180,7 @@ def weight():
 
 
 
-    return redirect(url_for('main.location'))
+    return render_template('question/set_weights.html', form=form)
 
 
 @bp.route('/test')
