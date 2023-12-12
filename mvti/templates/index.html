@@ -64,9 +64,16 @@
 
                 <!-- TEST 시작 버튼 -->
                 <div class="text-center mt-3">
-                    <button class="btn btn-secondary" onclick="submitAllForms()">TEST 하러 가기</button>
-                </div>
-                <br>
+                    <button class="btn btn-secondary" onclick="goToTestPage()">TEST 하러 가기</button>
+                </div> 
+                
+                <script>
+                    function goToTestPage() {
+                        // window.location.href를 사용하여 페이지 이동
+                        window.location.href = "{{ url_for('question.question1') }}";
+                    }
+                </script>
+                
 
                 <!-- JavaScript 코드 -->
                 <script>

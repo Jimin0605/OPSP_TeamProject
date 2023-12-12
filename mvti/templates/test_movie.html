@@ -1,62 +1,61 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<body>
-<br>
 
-<div class="container">
-    <ol class="breadcrumb mb-1">
-        <li class="breadcrumb-item active">
-            <h3 class="fw-bold pb-2 mb-2">MVTI 검사 결과</h3>
-        </li>
-    </ol>
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <br>
+            <ol class="breadcrumb mb-1">
+                <li class="breadcrumb-item active">
+                    <h3 class="fw-bold pb-2 mb-2">MVTI 검사 결과</h3>
+                </li>
+            </ol>
 
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-body">
-                    <img src="http://openweathermap.org/img/w/{{ icon }}.png" alt="Weather Icon" class="img-fluid">
-                    <div class="col-md-6">
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">현재 날씨: {{ weather_main }}</li>
-                        </ol>
+            <div class="card-group">
+                <div class="card bg-light">
+                    <div class="card-body text-center">
+                        <img src="http://openweathermap.org/img/w/{{ icon }}.png" alt="Weather Icon" class="img-fluid">
+                        <div class="col-md-12 mt-3">
+                            <ol class="breadcrumb mb-4 text-center">
+                                <li class="breadcrumb-item" style="font-size: 24px;">현재 날씨: {{ weather_main }}</li>
+                            </ol>
+                
+                            <ol class="breadcrumb mb-4">
+                                <li class="breadcrumb-item active">현재 날씨에 이 영화들을 추천드릴게요!</li>
+                            </ol>
+                        </div>
                     </div>
+                </div>
+
+                {% for movie in recommend_data %}
+                <div class="card">
+                    <img src="http://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" class="card-img-top"
+                        alt="{{ movie.title }}" width="225" height="550">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ movie.title }}</h5>
+                        <p class="card-text">{{ movie.overview }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">개봉일: {{ movie.release_date }}<br>성인: {{ movie.adult }}</small>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+    <footer class="py-4 bg-light mt-auto">
+        <div class="container-fluid px-4">
+            <div class="d-flex align-items-center justify-content-between small">
+                <div class="text-muted">Copyright © team.에융(김지민, 김소정, 손유경)</div>
+                <div>
+                    <a href="#">Privacy Policy</a>
+                    &middot;
+                    <a href="#">Terms &amp; Conditions</a>
                 </div>
             </div>
         </div>
-    </div>
+    </footer>
 </div>
 
-
-
-
-{% for movie in recommend_data %}
-
-
-<div class="card-group">
-    <div class="card">
-      <img src="https://search.pstatic.net/common?quality=75&direct=true&src=https%3A%2F%2Fmovie-phinf.pstatic.net%2F20170418_82%2F1492496178995pHxdA_JPEG%2Fmovie_image.jpg" class="card-img-top" alt="..." width="225" height="650">
-      <div class="card-body">
-        <h5 class="card-title">{{ movie.title }}</h5>
-        <p class="card-text">{{ movie.overview }}</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
-
-
-
-    <img src="http://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" alt="{{ movie.title }}" width="250">
-    <p>{{ movie.title }}</p>
-    <p>Overview. {{ movie.overview }}</p>
-    <p>개봉일. {{ movie.release_date }}</p>
-    <p>성인. {{ movie.adult }}</p>
-{% endfor %}
-
-</body>
 {% endblock %}
-
-
-
